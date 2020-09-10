@@ -9,7 +9,7 @@ public class BookController {
 	//http://localhost:8080/index
 	@RequestMapping("/index")
 	public String Bookstore() {
-		return ":)";
+		return "books";
 	}
 	
 
