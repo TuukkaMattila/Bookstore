@@ -1,13 +1,23 @@
 package swd20.Bookstore.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
-	
 	//attribuutit
+	@Id //määrää taulun pääavaimen
+	@GeneratedValue(strategy = GenerationType.AUTO) //tietokantapalvelin generoi uniikin arvon
+	private long id;
 	private String title;
 	private String author;
 	private int year;
 	private int isbn;
 	private double price;
+	
+	//konstruktorit
 	
 	public Book(String title, String author, int year, int isbn, double price) {
 		super();
@@ -17,6 +27,9 @@ public class Book {
 		this.isbn = isbn;
 		this.price = price;
 	}
+	
+	
+
 
 	public Book() {
 		super();
@@ -24,11 +37,31 @@ public class Book {
 		this.author = null;
 		this.year = 0;
 		this.isbn = 0;
-		this.price = 0;
+		this.price = 0.00;
 	}
 
+
+
+
+
+
+
+
+
+	//getterit ja setterit
+	
+	
 	public String getTitle() {
 		return title;
+	}
+
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public void setTitle(String title) {
@@ -67,11 +100,17 @@ public class Book {
 		this.price = price;
 	}
 
+	//toString
+	
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn + ", price=" + price
-				+ "]";
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn
+				+ ", price=" + price + "]";
 	}
+
+
+	
+	
 	
 	
 
