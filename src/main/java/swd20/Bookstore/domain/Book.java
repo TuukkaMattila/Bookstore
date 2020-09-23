@@ -19,6 +19,16 @@ public class Book {
 	
 	//konstruktorit
 	
+	public Book() {
+		/*
+		super();
+		this.title = null;
+		this.author = null;
+		this.year = 0;
+		this.isbn = 0;
+		this.price = 0.00;*/
+	}
+	
 	public Book(String title, String author, int year, int isbn, double price) {
 		super();
 		this.title = title;
@@ -30,30 +40,14 @@ public class Book {
 	
 	
 
-
-	public Book() {
-		super();
-		this.title = null;
-		this.author = null;
-		this.year = 0;
-		this.isbn = 0;
-		this.price = 0.00;
-	}
-
-
-
-
-
-
-
-
+	
+	
+	
 
 	//getterit ja setterit
 	
 	
-	public String getTitle() {
-		return title;
-	}
+
 
 
 	public long getId() {
@@ -64,6 +58,10 @@ public class Book {
 		this.id = id;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
