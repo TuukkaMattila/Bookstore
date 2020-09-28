@@ -1,6 +1,8 @@
 package swd20.Bookstore;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,9 +10,13 @@ import org.springframework.context.annotation.Bean;
 
 import swd20.Bookstore.domain.Book;
 import swd20.Bookstore.domain.BookRepository;
+import swd20.Bookstore.domain.Category;
+import swd20.Bookstore.domain.CategoryRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
+	
+	private static final Logger log = LoggerFactory.getLogger(BookstoreApplication.class);  // uusi loggeriattribuutti
 
 	//automaattisesti generoitu main-metodi
 	public static void main(String[] args) {
@@ -37,9 +43,35 @@ public class BookstoreApplication {
 		bookRepository.save(book6); 
 		bookRepository.save(book7);
 		
+		log.info("Fetch all Books");
+		for (Book book : bookRepository.findAll()) {
+			log.info(book.toString());
+		}
+		
+	
 		
 		
 	};
+	}
+	
+	@Bean
+	public static CommandLineRunner democat(CategoryRepository categoryRepository) {
+		return (args) -> {
+			Category category1 = new Category("Fantasy");
+			Category category2 = new Category("Drama");
+			Category category3 = new Category("Horror");
+			Category category4 = new Category("Cooking");
+			
+			categoryRepository.save(category1);
+			categoryRepository.save(category2);
+			categoryRepository.save(category3);
+			categoryRepository.save(category4);
+			
+		log.info("Fetch all Categories");
+		for (Category category : categoryRepository.findAll()) {
+				log.info(category.toString());
+			}
+		};
 	}
 	
 
