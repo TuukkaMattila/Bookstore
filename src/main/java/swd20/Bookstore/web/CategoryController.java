@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import swd20.Bookstore.domain.Book;
 import swd20.Bookstore.domain.Category;
 import swd20.Bookstore.domain.CategoryRepository;
 
@@ -31,6 +32,13 @@ public class CategoryController {
 		model.addAttribute("category", new Category());
 		return "addcategory";
 	}
+	
+		//Kategorian tallennus
+		@RequestMapping(value = "/savecat")
+		public String save(Category category) {
+			categoryRepository.save(category);
+			return "redirect:categorylist";
+		}
 	
 
 }
