@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import swd20.Bookstore.domain.Book;
+import swd20.Bookstore.domain.BookRepository;
 import swd20.Bookstore.domain.Category;
 import swd20.Bookstore.domain.CategoryRepository;
 
@@ -40,6 +42,12 @@ public class CategoryController {
 	@RequestMapping(value="categories/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Category> findCategoryRest(@PathVariable("categoryid") Long categoryid){
 		return categoryRepository.findById(categoryid);
+	}
+	
+	//REST metodi kategorian tallentamiseen
+	@RequestMapping(value="/categories", method = RequestMethod.POST)
+	public @ResponseBody Category saveBookRest(@RequestBody Category category) {
+		return categoryRepository.save(category);
 	}
 	
 	
