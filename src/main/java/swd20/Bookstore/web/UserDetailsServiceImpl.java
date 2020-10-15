@@ -12,7 +12,6 @@ import swd20.Bookstore.domain.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-	
 	private final UserRepository userRepository;
 	
 	@Autowired
@@ -21,8 +20,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	}
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws
-	UsernameNotFoundException{
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
+	{
 		User curruser = userRepository.findByUsername(username);
 		UserDetails user = new org.springframework.security.core.userdetails.User(username,
 				curruser.getPasswordHash(),

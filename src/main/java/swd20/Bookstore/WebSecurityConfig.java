@@ -34,7 +34,7 @@ protected void configure(HttpSecurity http) throws Exception {
 		.and()
 	.formLogin()
 		.loginPage("/login") //login page endpoint
-		.defaultSuccessUrl("/booklist") //ohjaus jos login onnistunut
+		.defaultSuccessUrl("/booklist", true) //ohjaus jos login onnistunut
 		.permitAll()
 		.and()
 	.logout()

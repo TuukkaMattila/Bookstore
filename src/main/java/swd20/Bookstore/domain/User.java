@@ -25,6 +25,7 @@ public class User {
     @Column(name = "role", nullable = false)
     private String role;
     
+    @Column(name = "email", nullable = false)
     private String email;
 
 
